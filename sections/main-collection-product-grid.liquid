@@ -1,6 +1,7 @@
 {{ 'template-collection.css' | asset_url | stylesheet_tag }}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'infinate-scroll.js' | asset_url }}"></script>
 
 {% if section.settings.image_shape == 'blob' %}
   {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
@@ -181,6 +182,14 @@
     {% render 'mask-arch' %}
   {%- endif -%}
 </div>
+
+<script>
+  const endlessCollection = new InfiniteScroll({
+    container: '#product-grid',
+    pagination: '.infinite_next',
+    method:'scroll'
+  });
+</script>
 
 {% schema %}
 {

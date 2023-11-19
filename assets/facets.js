@@ -78,6 +78,10 @@ class FacetFiltersForm extends HTMLElement {
   }
 
   static renderProductGridContainer(html) {
+    const endlessCollection = new InfiniteScroll({
+      container: '#product-grid',
+      pagination: '.infinite_next',
+      });
     document.getElementById('ProductGridContainer').innerHTML = new DOMParser()
       .parseFromString(html, 'text/html')
       .getElementById('ProductGridContainer').innerHTML;
